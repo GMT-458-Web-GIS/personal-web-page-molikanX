@@ -1,1 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/7C3xAGjq)
+I have used ai assistance for 4-5 hours
+I learned how to use github and visual stuido code
+Now i understand html, css and js better.
+I downloaded some of the images from internet and added some manually

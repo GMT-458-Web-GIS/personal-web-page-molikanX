@@ -1,0 +1,276 @@
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Inter:wght@400;600&display=swap');
+
+/* --- Renk ve Font Değişkenleri (Astron Tasarımı) --- */
+:root {
+    --bg-color: #000000; /* Siyah Arka Plan */
+    --card-color: #0d0d0d; /* Çok koyu gri kart */
+    --border-color: #222; /* İnce kenarlıklar */
+    --text-color: #e0e0e0; /* Kırık beyaz metin */
+    --text-secondary: #aaa; /* İkincil gri metin */
+    --accent-color: #ffffff; /* Vurgu rengi (Beyaz) */
+    
+    --font-heading: 'Exo 2', sans-serif; /* Başlıklar */
+    --font-body: 'Inter', sans-serif; /* Gövde Metni */
+}
+
+/* --- Genel Sıfırlama ve Temel Stiller --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #aaa;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Navigasyon Menüsü --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2.5rem;
+}
+
+nav ul li a {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+nav ul li a.active {
+    color: var(--accent-color);
+}
+
+/* --- Hero (Açılış) Alanı --- */
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 4rem 10%;
+    flex-wrap: wrap; /* Küçük ekranlar için */
+}
+
+.hero-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    max-width: 60ch;
+}
+
+.hero-right {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.hero-image {
+    max-width: 450px;
+    height: 450px; /* Fotoğrafı kare/yuvarlak yapmak için */
+    object-fit: cover; /* Fotoğrafın bozulmasını engeller */
+    border-radius: 50%;
+    filter: grayscale(80%) contrast(1.1);
+}
+
+/* --- Genel İçerik Bölümleri (Projeler, Harita) --- */
+.content-section {
+    width: 80%;
+    margin: 5rem auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-header .subtitle {
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+}
+.section-header h2 {
+    font-size: 3rem;
+}
+.section-header p {
+    font-size: 1.1rem;
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Proje Kart Grid'i --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+}
+.card-content p {
+    font-size: 0.9rem;
+}
+.card-content .read-more {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+/* --- CTA (Çağrı) Bölümü --- */
+.cta-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                      url('https://images.unsplash.com/photo-1506443432602-ac2fcd6f5439?q=80&w=1600');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax efekti */
+}
+.cta-section h2 {
+    font-size: 3rem;
+}
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 0.8rem 2rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-top: 1.5rem;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* --- Footer --- */
+.footer {
+    padding: 4rem 10% 2rem 10%;
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* 3 sütunlu */
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.footer-links h4, .footer-contact h4 {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+.footer-links ul {
+    list-style: none;
+}
+.footer-links ul li {
+    margin-bottom: 0.5rem;
+}
+.footer-links ul li a, .footer-contact p {
+    color: var(--text-secondary);
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* --- CSS Animasyonu (PDF Şartı) --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}

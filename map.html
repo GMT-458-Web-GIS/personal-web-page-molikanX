@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenLayers Harita - Enes Dicle</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #d8bfbf; /* Senin kodundaki arka plan */
+        }
+        h1, p {
+            text-align: center;
+        }
+        .map-container {
+            width: 90%;
+            height: 80vh; /* Ekranın %80 yüksekliği */
+            margin: 20px auto;
+            border: 3px solid #000;
+            border-radius: 8px; /* Senin kodundaki köşe yuvarlatma */
+        }
+        a {
+            text-decoration: none;
+            color: #0078d7; /* Senin kodundaki link rengi */
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>OpenLayers </h1>
+    <p>This map is focused on Ankara.</p>
+    <p><a href="index.html">&larr; Go to main page</a></p> 
+
+    <div id="map" class="map-container"></div>
+
+    <script>
+        // Haritayı oluştur
+        window.onload = function () {
+            try {
+                // Ankara koordinatları (EPSG:4326)
+                const ankaraLonLat = [32.8597, 39.9334];
+
+                // EPSG:3857'e dönüştür
+                const ankaraWebMercator = ol.proj.fromLonLat(ankaraLonLat);
+
+                // OpenStreetMap katmanı
+                const osmLayer = new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                });
+
+                // Nokta (Pin) oluştur
+                const marker = new ol.Feature({
+                    geometry: new ol.geom.Point(ankaraWebMercator)
+                });
+
+                const vectorSource = new ol.source.Vector({
+                    features: [marker]
+                });
+
+                // İşaretçi stili (Senin kodundaki gibi)
+                const markerStyle = new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
+                        scale: 0.05 // Senin kodundaki ölçek
+                    })
+                });
+
+                const vectorLayer = new ol.layer.Vector({
+                    source: vectorSource,
+                    style: markerStyle
+                });
+
+                // Haritayı başlat
+                const map = new ol.Map({
+                    target: 'map',
+                    layers: [osmLayer, vectorLayer], // İki katmanı da ekle
+                    view: new ol.View({
+                        center: ankaraWebMercator,
+                        zoom: 10
+                    })
+                });
+            } catch (err) {
+                console.error("", err);
+                alert("");
+            }
+        };
+    </script>
+</body>
+</html>
